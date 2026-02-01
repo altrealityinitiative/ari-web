@@ -1,8 +1,8 @@
 import "./Hero.css";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { FBXLoader } from "three/addons/loaders/FBXLoader.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 function Hero() {
   const containerRef = useRef(null);
@@ -12,114 +12,161 @@ function Hero() {
 
     // Three.js setup
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let object;
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.toneMappingExposure = 0.7;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
     containerRef.current.appendChild(renderer.domElement);
 
-    const controls = new OrbitControls(camera, renderer.domElement);
+    let camera;
+    let controls;
 
-    // Load FBX model
-    const loader = new FBXLoader();
+    const keyLight = new THREE.RectAreaLight(0xffffff, 7.5, 1425.9, 732.6);
+    keyLight.position.set(1633.3, 265.0, 991.7);
+    keyLight.rotation.set(
+      (-10.38 * Math.PI) / 180,
+      (64.25 * Math.PI) / 180,
+      (101.5 * Math.PI) / 180,
+    );
+    scene.add(keyLight);
+
+    const fillLight = new THREE.RectAreaLight(0xffffff, 2.49, 1425.9, 732.6);
+    fillLight.position.set(-177.6, -1659, 991.7);
+    fillLight.rotation.set(
+      (64.58 * Math.PI) / 180,
+      (-5.3 * Math.PI) / 180,
+      (-2.51 * Math.PI) / 180,
+    );
+    scene.add(fillLight);
+
+    const backLight = new THREE.RectAreaLight(0xffffff, 3.6, 973, 574.6);
+    backLight.position.set(-521.9, 1002, 0.61);
+    backLight.rotation.set((-90 * Math.PI) / 180, (-45.3 * Math.PI) / 180, 0);
+    scene.add(backLight);
+
+    const shadowLight = new THREE.DirectionalLight(0xffffff, 2);
+    shadowLight.position.set(1633.3, 265.0, 991.7);
+    shadowLight.castShadow = true;
+    shadowLight.shadow.mapSize.width = 2048;
+    shadowLight.shadow.mapSize.height = 2048;
+    shadowLight.shadow.camera.near = 0.5;
+    shadowLight.shadow.camera.far = 5000;
+    shadowLight.shadow.camera.left = -1000;
+    shadowLight.shadow.camera.right = 1000;
+    shadowLight.shadow.camera.top = 1000;
+    shadowLight.shadow.camera.bottom = -1000;
+    scene.add(shadowLight);
+
+    // Optional: Add minimal ambient light for very dark areas
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+    scene.add(ambientLight);
+
+    const loader = new GLTFLoader();
     loader.load(
-      "/src/assets/models/ari-3d.fbx",
-      function (fbx) {
-        object = fbx;
+      "/src/assets/models/ari-web-head-3d.glb",
+      function (gltf) {
+        scene.add(gltf.scene);
 
-        // Scale down the model (adjust this value to make it smaller/bigger)
-        fbx.scale.set(0.5, 0.5, 0.5); // Try 0.3, 0.5, or 0.8 to find what looks good
-
-        // Center the model
-        fbx.position.set(0, -50, 0);
-
-        fbx.traverse((child) => {
+        gltf.scene.traverse((child) => {
           if (child.isMesh) {
-            // Check the material name
-            if (child.material.name === "aribody_1") {
-              // Headset - make it cyan
-              child.material.color.setHex(0x63cbd3);
-              child.material.emissive.setHex(0x63cbd3);
-              child.material.emissiveIntensity = 0.3; // Add a glow
-            } else if (child.material.name === "aribody_2") {
-              // Head - make it purple
-              child.material.color.setHex(0x667eea);
-              child.material.emissive.setHex(0x667eea);
-              child.material.emissiveIntensity = 0.2;
-            }
+            child.castShadow = true;
+            child.receiveShadow = true;
+            if (child.material) {
+              const originalColor = child.material.color.clone();
+              const gray =
+                originalColor.r * 0.299 +
+                originalColor.g * 0.587 +
+                originalColor.b * 0.114;
+              child.material.color.r = gray + (originalColor.r - gray) * 0.5;
+              child.material.color.g = gray + (originalColor.g - gray) * 0.5;
+              child.material.color.b = gray + (originalColor.b - gray) * 0.5;
 
-            child.material.needsUpdate = true;
+              // If it's the ground plane, enhance reflectivity
+              if (
+                child.name.toLowerCase().includes("floor") ||
+                child.name.toLowerCase().includes("ground") ||
+                child.name.toLowerCase().includes("plane")
+              ) {
+                child.material.roughness = 1; // Make it more reflective
+                child.material.metalness = 0.1;
+              }
+
+              child.material.needsUpdate = true;
+            }
           }
         });
-        scene.add(object);
+
+        if (gltf.cameras && gltf.cameras.length > 0) {
+          camera = gltf.cameras[0];
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+        } else {
+          camera = new THREE.PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            1000,
+          );
+          camera.position.set(0, 0, 5);
+        }
+
+        controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableZoom = false;
+        controls.enablePan = false;
+
+        animate();
       },
       function (xhr) {
         console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
       },
       function (error) {
-        console.log("An error happened", error);
-      }
+        console.error("Error loading GLB:", error);
+      },
     );
 
-    camera.position.set(0, 0, 100); // (x, y, z) - try different values
-    camera.lookAt(0, 0, 0); // Make camera look at the center
-
-    // Lights
-    const toplight = new THREE.PointLight(0xffffff, 1, 100);
-    toplight.position.set(0, 50, 50);
-    scene.add(toplight);
-
-    const ambientLight = new THREE.AmbientLight(0xffffff, 5);
-    scene.add(ambientLight);
-
-    // Animation
     function animate() {
       requestAnimationFrame(animate);
-
-      if (object) {
-        object.rotation.y = -3 + (mouseX / window.innerWidth) * 3;
-        object.rotation.x = -1.2 + (mouseY * 2.5) / window.innerHeight;
-      }
-      renderer.render(scene, camera);
+      if (controls) controls.update();
+      if (camera) renderer.render(scene, camera);
     }
-    animate();
 
-    // Event listeners
     const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
+      if (camera) {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+      }
       renderer.setSize(window.innerWidth, window.innerHeight);
     };
-
-    const handleMouseMove = (event) => {
-      mouseX = event.clientX;
-      mouseY = event.clientY;
-    };
-
     window.addEventListener("resize", handleResize);
-    document.addEventListener("mousemove", handleMouseMove);
 
-    // Cleanup
     return () => {
       window.removeEventListener("resize", handleResize);
-      document.removeEventListener("mousemove", handleMouseMove);
-      containerRef.current?.removeChild(renderer.domElement);
+      if (controls) controls.dispose();
+      if (containerRef.current) {
+        containerRef.current.removeChild(renderer.domElement);
+      }
       renderer.dispose();
     };
   }, []);
 
   return (
     <div className="hero">
-      <div ref={containerRef} id="hero-background"></div>
+      {/* <div ref={containerRef} id="hero-background"></div> */}
+
+      <iframe
+        src="https://app.vectary.com/p/4Z9cAweXRzUMw2U0NcHia3"
+        frameborder="0"
+        width="100%"
+        height="100%"
+        allow="xr-spatial-tracking; fullscreen;"
+      ></iframe>
       <div className="hero-content">
         <h1>Alternate Reality Initiative</h1>
         <h2>University of Michigan</h2>

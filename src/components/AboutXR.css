@@ -16,6 +16,8 @@
 .about-xr p {
   font-size: 1.2rem;
   line-height: 1.8;
+  width: 50%;
+  margin: 0 auto;
   color: #555;
   margin-bottom: 20px;
 }
