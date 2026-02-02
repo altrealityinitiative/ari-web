@@ -1,0 +1,15 @@
+.footer {
+    background-color: #181919;
+    color: #f6f6f6;
+    text-align: center;
+    padding: 30px;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
