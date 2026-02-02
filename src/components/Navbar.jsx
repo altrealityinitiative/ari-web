@@ -1,4 +1,8 @@
 import "./Navbar.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Meetings from "../pages/Meetings";
+import Home from "../pages/Home";
+
 
 function Navbar() {
   return (
@@ -16,25 +20,18 @@ function Navbar() {
         {/* Navigation Links */}
         <ul className="nav-menu">
           <li className="nav-item">
-            <a href="/" className="nav-link">
-              Home
-            </a>
+            <Link to="/home">Home</Link>
           </li>
           <li className="nav-item">
-            <a href="/about" className="nav-link">
-              About
-            </a>
+            <Link to="/about">About</Link>
           </li>
           <li className="nav-item">
-            <a href="/meetings" className="nav-link">
-              Meetings
-            </a>
+            <Link to="/meetings">Meetings</Link>
           </li>
           <li className="nav-item">
-            <a href="/workshops" className="nav-link">
-              Workshops
-            </a>
+            <Link to="/workshops">Workshops</Link>
           </li>
+          {/* Add more links as needed */}
         </ul>
       </div>
     </nav>

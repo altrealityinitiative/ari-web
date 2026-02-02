@@ -35,6 +35,23 @@
   height: 600px;
 }
 
+.meeting-info {
+  max-width: 800px;
+  margin: 30px auto 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+  color: #ccc;
+}
+
+.meeting-info p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  width: 80%;
+  margin: 0 auto;
+  color: #f6f6f6;
+  margin-bottom: 20px;
+}
 @media (max-width: 768px) {
   .calendar-container iframe {
     height: 500px;
