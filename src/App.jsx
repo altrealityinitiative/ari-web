@@ -7,23 +7,20 @@ import Footer from "./components/Footer";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import About from "./pages/About";
 import "./App.css";
 
 function App() {
   return (
-    <Router>
       <div className="App">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/meetings" element={<Meetings />} />
-          <Routes path="/workshops" element={<Workshops />} />
+          <Route path="/workshops" element={<Workshops />} />
         </Routes>
         <Footer />
       </div>
-    </Router>
   );
 }
 

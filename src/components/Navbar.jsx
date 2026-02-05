@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, NavLink} from "react-router-dom";
 import Meetings from "../pages/Meetings";
 import Home from "../pages/Home";
 
@@ -20,16 +20,16 @@ function Navbar() {
         {/* Navigation Links */}
         <ul className="nav-menu">
           <li className="nav-item">
-            <Link to="/home">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/about">About</Link>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/meetings">Meetings</Link>
+            <NavLink to="/meetings">Meetings</NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/workshops">Workshops</Link>
+            <NavLink to="/workshops">Workshops</NavLink>
           </li>
           {/* Add more links as needed */}
         </ul>
