@@ -1,4 +1,4 @@
-import "./Timeline.css";
+import "./TimeLine.css";
 import { timeline } from "../data/timeline";
 
 function Timeline() {

@@ -1,6 +1,6 @@
 import WhoWeAre from "../components/about/WhoWeAre";
 import TeamSection from "../components/about/TeamSection";
-import Timeline from "../components/Timeline";
+import Timeline from "../components/TimeLine";
 
 
 export default function About() {
