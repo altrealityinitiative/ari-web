@@ -1,7 +1,6 @@
 import "./Navbar.css";
 import { BrowserRouter, Routes, Route, Link, NavLink} from "react-router-dom";
-import Meetings from "../pages/Meetings";
-import Home from "../pages/Home";
+
 
 
 function Navbar() {
@@ -29,7 +28,7 @@ function Navbar() {
             <NavLink to="/meetings">Meetings</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/workshops">Workshops</NavLink>
+            <NavLink to="/projects">Projects</NavLink>
           </li>
           {/* Add more links as needed */}
         </ul>

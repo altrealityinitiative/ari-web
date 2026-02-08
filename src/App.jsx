@@ -1,6 +1,6 @@
 import Home from "./pages/Home";
 import Meetings from "./pages/Meetings";
-import Workshops from "./pages/Workshops";
+import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/meetings" element={<Meetings />} />
-          <Route path="/workshops" element={<Workshops />} />
+          <Route path="/projects" element={<Projects />} />
         </Routes>
         <Footer />
       </div>
