@@ -162,7 +162,7 @@ function Hero() {
 
       <iframe
         src="https://app.vectary.com/p/4Z9cAweXRzUMw2U0NcHia3"
-        frameborder="0"
+        frameBorder="0"
         width="100%"
         height="100%"
         allow="xr-spatial-tracking; fullscreen;"
