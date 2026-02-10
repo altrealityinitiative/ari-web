@@ -52,8 +52,21 @@
   color: #f6f6f6;
   margin-bottom: 20px;
 }
+
 @media (max-width: 768px) {
   .calendar-container iframe {
     height: 500px;
   }
+}
+
+.map-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.map-container > div {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
