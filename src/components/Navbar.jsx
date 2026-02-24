@@ -1,8 +1,6 @@
 import "./Navbar.css";
-import { BrowserRouter, Routes, Route, Link, NavLink} from "react-router-dom";
-import Meetings from "../pages/Meetings";
-import Home from "../pages/Home";
-
+import { NavLink } from "react-router-dom";
+import ariLogo from "../assets/images/ari-logo/ari-logo-main.png";
 
 function Navbar() {
   return (
@@ -10,11 +8,7 @@ function Navbar() {
       <div className="navbar-container">
         {/* Logo */}
         <div className="navbar-logo">
-          <img
-            src="/src/assets/images/ari-logo/ari-logo-main.png"
-            alt="ARI Logo"
-            className="logo-image"
-          />
+          <img src={ariLogo} alt="ARI Logo" className="logo-image" />
         </div>
 
         {/* Navigation Links */}
@@ -31,7 +25,6 @@ function Navbar() {
           <li className="nav-item">
             <NavLink to="/workshops">Workshops</NavLink>
           </li>
-          {/* Add more links as needed */}
         </ul>
       </div>
     </nav>
