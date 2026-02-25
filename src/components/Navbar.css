@@ -100,3 +100,13 @@
 .nav-item a:hover {
   color: #63CBD3;
 }
+
+@media (max-width: 768px) {
+  .nav-menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 12px;
+  }
+}
