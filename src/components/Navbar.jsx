@@ -28,9 +28,6 @@ function Navbar() {
           <li className="nav-item">
             <NavLink to="/meetings">Meetings</NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink to="/workshops">Workshops</NavLink>
-          </li>
           {/* Add more links as needed */}
         </ul>
       </div>
