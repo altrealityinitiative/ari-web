@@ -2,6 +2,7 @@ import "./Navbar.css";
 import { BrowserRouter, Routes, Route, Link, NavLink} from "react-router-dom";
 import Meetings from "../pages/Meetings";
 import Home from "../pages/Home";
+import logo from "../assets/images/ari-logo/ari-logo-main.png";
 
 
 function Navbar() {
@@ -11,7 +12,7 @@ function Navbar() {
         {/* Logo */}
         <div className="navbar-logo">
           <img
-            src="/src/assets/images/ari-logo/ari-logo-main.png"
+            src={logo}
             alt="ARI Logo"
             className="logo-image"
           />
