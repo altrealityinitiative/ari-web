@@ -1,4 +1,5 @@
 import "./Mission.css";
+import missionImg from "../assets/images/img5.jpg";
 
 function Mission() {
   return (
@@ -29,7 +30,10 @@ function Mission() {
 
         {/* Right Column - Single Image */}
         <div className="mission-image">
-          <img src="/src/assets/images/img5.jpg" alt="Students working on their XR projects" />
+          <img
+            src={missionImg}
+            alt="Students working on their XR projects"
+          />
         </div>
       </div>
     </section>
