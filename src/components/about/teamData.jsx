@@ -1,3 +1,5 @@
+const BASE = import.meta.env.BASE_URL;
+
 const team = [
     {
         name: "Andy Yao",
