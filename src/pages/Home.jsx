@@ -6,11 +6,13 @@ import Mission from "../components/Mission";
 // import Mission from "../components/Mission";
 import JoinUs from "../components/JoinUs";
 import Footer from "../components/Footer";
+import PageTransition from "../components/PageTransition";
 
 // import Newsletter from "../components/Newsletter";
 
 function Home() {
   return (
+    <PageTransition>
     <div className="home">
       <Hero />
       <AboutXR />
@@ -18,6 +20,7 @@ function Home() {
       <Mission />
       <JoinUs />
     </div>
+    </PageTransition>
   );
 }
 

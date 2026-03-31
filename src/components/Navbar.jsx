@@ -11,11 +11,13 @@ function Navbar() {
       <div className="navbar-container">
         {/* Logo */}
         <div className="navbar-logo">
-          <img
-            src={logo}
-            alt="ARI Logo"
-            className="logo-image"
-          />
+          <Link to="/">
+            <img
+              src={logo}
+              alt="ARI Logo"
+              className="logo-image"
+            />
+          </Link>
         </div>
 
         {/* Navigation Links */}

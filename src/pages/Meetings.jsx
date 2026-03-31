@@ -1,7 +1,9 @@
 import "./Meetings.css";
+import PageTransition from "../components/PageTransition";
 
 function Meetings() {
   return (
+    <PageTransition>
     <div className="meetings-page">
       <div className="meetings-header">
         <h1>Upcoming Meetings</h1>
@@ -24,6 +26,7 @@ function Meetings() {
         </p>
       </section>
     </div>
+    </PageTransition>
   );
 }
 
