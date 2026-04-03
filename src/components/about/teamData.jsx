@@ -62,6 +62,12 @@ const team = [
         bio: "Ethan is an undergraduate studying computer science in the College of Literature, Science, and Arts. His first interaction with VR was playing Beat Saber in the middle of a mall, and he's been hooked ever since. He's been making games since middle school and enjoys seeing new ways XR gives users ways to interact with the virtual world.",
     },
     {
+        name: "Daniel Lim",
+        role: "Hackathon/Web Lead",
+        image: `${BASE}images/daniel.png`,
+        bio: "Daniel has love in every new technology that will shape the future & belief that XR is the new generation technology goal: integrate XR into daily life to enhance quality of life."
+    },
+    {
         name: "Michael Nebeling",
         role: "Faculty Advisor",
         image: `${BASE}images/michael.jpg`,

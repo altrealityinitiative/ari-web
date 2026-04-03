@@ -1,11 +1,23 @@
 import "./Hero.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 function Hero() {
   const containerRef = useRef(null);
+  const [canUseWebGL, setCanUseWebGL] = useState(false);
+
+  useEffect(() => {
+  const canvas = document.createElement("canvas");
+  const gl =
+    canvas.getContext("webgl") ||
+    canvas.getContext("experimental-webgl");
+
+  if (gl) {
+    setCanUseWebGL(true);
+  }
+}, []);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -159,14 +171,22 @@ function Hero() {
   return (
     <div className="hero">
       {/* <div ref={containerRef} id="hero-background"></div> */}
-
-      <iframe
-        src="https://app.vectary.com/p/4Z9cAweXRzUMw2U0NcHia3"
-        frameborder="0"
-        width="100%"
-        height="100%"
-        allow="xr-spatial-tracking; fullscreen;"
-      ></iframe>
+      {canUseWebGL ? (
+        <iframe
+          src="https://app.vectary.com/p/4Z9cAweXRzUMw2U0NcHia3"
+          frameBorder="0"
+          width="100%"
+          height="100%"
+          allow="xr-spatial-tracking; fullscreen;"
+          className="hero-media"
+        ></iframe>
+      ) : (
+        <img
+          src="/images/hero-fallback.png"
+          alt="ARI hero fallback"
+          className="hero-media"
+        />
+      )}
       <div className="hero-content">
         <h1>Alternate Reality Initiative</h1>
         <h2>University of Michigan</h2>
