@@ -9,6 +9,7 @@ export default function ProjectsGallery() {
         <ProjectsCard
           key={index}
           name={project.name}
+          status={project.status}
           description={project.description}
           image={project.image}
           link={project.link}

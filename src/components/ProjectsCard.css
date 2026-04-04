@@ -66,3 +66,10 @@
   color: #2563eb;
   text-decoration: underline;
 }
+
+.project-content .project-status {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin-bottom: 8px;
+  font-style: italic;
+}
