@@ -1,39 +1,33 @@
 export const teamdata = [
-  {
-    name: "Andy Yao",
-    role: "President",
-    image: "/images/andy.jpg",
-    bio: "Andy is an undergraduate studying computer science in the College of Engineering. He plans to build virtual tools in pursuit of real impact, especially in education. His love of XR began in high school, where by day he would research human movement with a Meta Quest, and by night he would play Beat Saber. By creating experiences that leave people with not only useful skills, but a new sense of wonder, Andy hopes to change all words – virtual and physical – for the better.",
-  },
+  // {
+  //   name: "Andy Yao",
+  //   role: "President",
+  //   image: "/images/andy.jpg",
+  //   bio: "Andy is an undergraduate studying computer science in the College of Engineering. He plans to build virtual tools in pursuit of real impact, especially in education. His love of XR began in high school, where by day he would research human movement with a Meta Quest, and by night he would play Beat Saber. By creating experiences that leave people with not only useful skills, but a new sense of wonder, Andy hopes to change all words – virtual and physical – for the better.",
+  // },
   {
     name: "Vivian O",
-    role: "Vice President",
+    role: "Tech Administrator",
     image: "/images/vivian.jpg",
     bio: "Vivian O is an undergraduate currently pursuing a double major in computer science and cognitive science, with a minor in UX design. Her journey into the world of augmented reality (AR) began with playing Geocache in high school. With a keen interest in the human-computer interaction (HCI) aspect of XR, Vivian aims to expand her knowledge and skills to create XR everyday applications that prioritize accessibility.",
   },
   {
     name: "Selina Sun",
-    role: "Fundraising Chair",
+    role: "Co-President",
     image: "/images/selina.jpg",
     bio: "Selina is an undergraduate double majoring in computer science in the College of Engineering and business administration in Ross School of Business. She joined ARI because it combined her previous experience with 3D modeling with game development in Unity. Her fascination with XR lies in its complementary applications with CV.",
   },
   {
     name: "Sarraf Ahmed",
-    role: "Tech Lead",
+    role: "Vice President",
     image: "/images/sarraf.jpg",
     bio: "Sarraf is an undergraduate majoring in Computer Science in the College of Literature, Science, and Arts. He has been fascinated by technology from his childhood, with a particular interest in XR. What intrigues him the most abou XR (especially AR) is its potential to integrate into everyday human life and enhance the overall quality of life in the future. Through ARI, Sarraf aims to deepen his knowledge in this field and prepare himself to contribute to that future.",
   },
   {
     name: "Scott Gilbert",
-    role: "Outreach Lead",
+    role: "Co-President",
     image: "/images/scott.jpg",
     bio: "Scott is an undergraduate studying computer science in the College of Engineering. His interest in XR started with a love for Beat Saber, which got him interested in headsets and game design. He found out about ARI last year and participated in the XR Midwest hackathon, which landed him an internship in the AR industry. Now he enjoys sharing his interest in XR with others!",
-  },
-  {
-    name: "Duncan Lau",
-    role: "Tech Lead",
-    image: "/images/duncan.jpg",
-    bio: "Duncan is a second-year MSI student with an academic background in CS and HCI. His fascination with XR began with the first releases of Google Glass, inspiring a journey into the possibilities of immersive technology. His passion lies in imagining the future interactions with XR, making them more intuitive and accessible to everyone. With a focus on user-centered design, he is eager to contribute to XR's evolution, creating experiences that feel both engaging and natural.",
   },
   {
     name: "Reona Choudhury",
