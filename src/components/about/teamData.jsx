@@ -22,7 +22,7 @@ const team = [
   {
     name: "Vivian O",
     role: "Tech Administrator",
-    image: `${BASE}images/vivian.jpg`,
+    image: `${BASE}images/viviano.jpg`,
     bio: "Vivian O is an undergraduate currently pursuing a double major in computer science and cognitive science, with a minor in UX design. Her journey into the world of augmented reality (AR) began with playing Geocache in high school. With a keen interest in the human-computer interaction (HCI) aspect of XR, Vivian aims to expand her knowledge and skills to create XR everyday applications that prioritize accessibility.",
   },
   {
