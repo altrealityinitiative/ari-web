@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://altrealityinitiative.github.io/ari-web",
+  "homepage": "https://www.altrealityinitiative.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
