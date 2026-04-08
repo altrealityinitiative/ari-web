@@ -1,4 +1,5 @@
 
+import { useEffect } from "react";
 import Hero from "../components/Hero";
 import AboutXR from "../components/AboutXR";
 import Gallery from "../components/Gallery";
@@ -11,6 +12,10 @@ import PageTransition from "../components/PageTransition";
 // import Newsletter from "../components/Newsletter";
 
 function Home() {
+  useEffect(() => {
+    document.title = "Alternate Reality Initiative | UofM";
+  }, []);
+
   return (
     <PageTransition>
     <div className="home">

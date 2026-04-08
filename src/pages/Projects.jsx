@@ -1,7 +1,12 @@
 import ProjectsGallery from "../components/ProjectsGallery";
 import "./Projects.css";
+import { useEffect } from "react";
 
 export default function Projects() {
+  useEffect(() => {
+    document.title = "Projects | ARI";
+  }, []);
+
   return (
     <div className="projects-page">
       <div className="projects-header">

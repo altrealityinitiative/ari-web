@@ -1,7 +1,12 @@
 import "./Meetings.css";
 import PageTransition from "../components/PageTransition";
+import { useEffect } from "react";
 
 function Meetings() {
+  useEffect(() => {
+    document.title = "Meetings | ARI";
+  }, []);
+
   return (
     <PageTransition>
       <div className="meetings-page">
