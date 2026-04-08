@@ -182,7 +182,7 @@ function Hero() {
         ></iframe>
       ) : (
         <img
-          src={`${import.meta.env.BASE_URL}images/logo.png`}
+          src="/images/hero-fallback.png"
           alt="ARI hero fallback"
           className="hero-media"
         />
