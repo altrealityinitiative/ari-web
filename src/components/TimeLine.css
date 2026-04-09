@@ -57,19 +57,34 @@
 
 
 @media (max-width: 768px) {
-  .timeline::before {
-    left: 8px;
+  .timeline-section {
+    padding: 4rem 0.5rem;
+  }
+
+  .timeline-title {
+    font-size: 2rem;
+  }
+
+  .timeline {
+    max-width: 100%;
   }
 
   .timeline-item {
-    width: 100%;
-    padding-left: 2.5rem;
-    padding-right: 1rem;
-    text-align: left;
+    padding: 1rem 1.2rem;  
+
+  .timeline-item.left {
+    left: 0;
+    text-align: right;    
   }
 
-  .timeline-item.left,
   .timeline-item.right {
-    left: 0;
+    left: 50%;
+    text-align: left;   
   }
+
+  .timeline-content {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+}
 }
