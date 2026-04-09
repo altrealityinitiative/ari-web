@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import RedirectHandler from "./components/RedirectHandler";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ScrollToTop from './components/ScrollToTop';
 
 import "./App.css";
 
@@ -14,6 +15,7 @@ function App() {
   return (
       <div className="App">
         <RedirectHandler />
+        <ScrollToTop /> 
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
