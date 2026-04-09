@@ -9,6 +9,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: black;
+  max-width: 100%;
 }
 
 #hero-background {
@@ -56,4 +57,11 @@
   object-fit: cover;
   border: none;
   z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background-size: contain;   
+    background-position: center;
+  }
 }

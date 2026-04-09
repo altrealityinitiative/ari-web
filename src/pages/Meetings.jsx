@@ -25,7 +25,7 @@ function Meetings() {
         </div>
         <section className="meeting-info">
           <p>
-            All ARI meetings are on <u>Saturdays</u> 12:00 - 1:30 pm in room
+            All ARI meetings are on <u>Saturdays</u> 1:00 - 2:30 pm in room
             1400 (Visualization Lab) at the Duderstadt Center (2281 Bonisteel
             Blvd, Ann Arbor, MI 48109), unless specified otherwise.
           </p>

@@ -5,7 +5,7 @@ function JoinUs() {
     <section className="join-us">
       <h2>Join us</h2>
       <p>
-        ARI usually meets on <u>Saturdays</u> 12:00 - 1:30 pm in room 1400
+        ARI usually meets on <u>Saturdays</u> 1 - 2:30 pm in room 1400
         (Visualization Lab) for workshops and game nights at the Duderstadt
         Center (2281 Bonisteel Blvd, Ann Arbor, MI 48109).
       </p>

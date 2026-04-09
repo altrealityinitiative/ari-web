@@ -18,8 +18,7 @@ function Mission() {
           </p>
 
           <p>
-            Check out our <a href="/blog">blog</a> for further details and
-            tutorial walkthroughs!
+            Check out our <a href="/projects">projects</a> for further details!
           </p>
 
           <p>

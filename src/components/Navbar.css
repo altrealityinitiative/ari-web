@@ -70,21 +70,6 @@
   }
 }
 
-@media (max-width: 768px) {
-  .navbar-container {
-    padding: 0 1rem;
-  }
-
-  .nav-menu {
-    gap: 1rem;
-  }
-
-  .nav-link {
-    padding: 0.5rem;
-    font-size: 0.9rem;
-  }
-}
-
 .nav-item a {
   color: white;
   text-decoration: none;
@@ -102,11 +87,35 @@
 }
 
 @media (max-width: 768px) {
+  .logo-image {
+    height: 45px;
+    width: 45px;
+  }
+
+  .navbar {
+    height: auto;
+    padding: 0.5rem 0;
+  }
+
+  .navbar-container {
+    flex-direction: row;        /* Keep logo and nav side by side */
+    align-items: center;
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+  }
+
   .nav-menu {
-    width: 100%;
+    position: static;
+    transform: none;
+    width: auto;
+    flex: 1;                    /* Take up remaining space after logo */
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 12px;
+    justify-content: space-evenly;
+    gap: 0;
+  }
+
+  .nav-link {
+    padding: 0.4rem 0.3rem;
+    font-size: 0.85rem;
   }
 }
