@@ -1,3 +1,7 @@
+# Latest Update (4/29/2026 4:34 PM)
+
+Update: Officially deployed the website and added unit testing with React testing library and playwright for web accessibility guidelines. A common issue we are running into is the rendering latency. I found a page that provides a diagnosis report on how to optimize it better. Plan is to incrementally follow it with integrated unit testing: https://pagespeed.web.dev/analysis/https-www-altrealityinitiative-com/9dxna6y4ps?form_factor=mobile 
+
 # Alternate Reality Initiative Website (WIP)
 
 This repository contains a **work-in-progress redesign and rebuild** of the Alternate Reality Initiative (ARI) website, an XR-focused student organization at the University of Michigan.
